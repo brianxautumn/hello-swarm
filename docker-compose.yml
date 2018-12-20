@@ -1,0 +1,14 @@
+version: "3"
+services:
+  web:
+    image: hello-swarm
+    deploy:
+      replicas: 8
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "3000:3000"
+    networks:
+      - webnet
+networks:
+  webnet:
